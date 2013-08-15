@@ -1,4 +1,4 @@
-Zend Ezample 
+Zend2 Example 
 =======================
 
 Introduction
@@ -18,7 +18,6 @@ Alternately, clone the repository and manually invoke `composer` using the shipp
 
     cd my/project/dir
     git clone git://github.com/bineetchaubey/zend_example.git
-    cd ZendSkeletonApplication
     php composer.phar self-update
     php composer.phar install
 
