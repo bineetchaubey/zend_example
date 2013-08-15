@@ -1,0 +1,37 @@
+<?php
+
+
+
+ // echo $c = count($paginator); // display total page 
+/*echo "<pre>";
+ var_dump($paginator);
+ echo "</pre>";
+*/
+// echo "<pre>";
+?>
+    <table class="table table-hover table-striped">
+    <thead>
+    <tr><th>Name</th><th>Email</th><th>Username</th></tr>
+    </thead>
+ <?php    
+foreach($paginator as $user){
+  echo "<tr>";
+  echo "<td>".$user->name."</td>";
+  echo "<td>".$user->email."</td>";
+  echo "<td>".$user->username."</td>";
+  echo "</tr>";
+}
+?>
+</table>
+
+<?php 
+// echo "</pre>";
+ echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'pagination', array('route' => 'blog',
+                                    	'controller'=> 'hello',
+                                    	'action' => 'paginationdoctrine'
+                                    	)); 
+
+
+?>

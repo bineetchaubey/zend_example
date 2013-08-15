@@ -1,0 +1,17 @@
+<?php
+
+echo "Combination of Doctrine Entity class and Zend InputFilter validation.";
+
+$form = $this->form;
+$form->setAttribute('action',$this->url('incuser', array('action' => 'addgroup'),true ));
+
+
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('name'));
+echo $this->formRow($form->get('display_name'));
+echo $this->formSubmit($form->get('Submit'));
+echo $this->form()->closeTag();
+
+
+?>

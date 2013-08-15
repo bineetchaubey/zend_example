@@ -1,0 +1,109 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
+
+        <script type="text/javascript">
+        
+         $(function(){
+
+           $('.dropdown-toggle').dropdown();
+         });
+        </script>                              
+
+    </head>
+    <body>
+
+     
+
+      <?php if ('development' == getenv('APPLICATION_ENV')) : ?>
+        <?php //echo $this->dbQueryProfiles()?>
+      <?php endif; ?>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <!-- <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a> -->
+
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="<?php echo $this->url('blog') ?>"><?php echo $this->translate('Home') ?></a></li>
+                        </ul>
+                        <?php echo $this->navigation('Navigation')->menu()->setUlClass('nav'); ?> 
+
+                        
+                        <!-- <p style="float: right;">
+                        <?php
+                           if ($user = $this->identity()) {         
+                                 
+
+                                   echo "<span>".$user->name. "<span> ";
+                                   echo "<span> ".$user->role."</span>";
+                                  ?>
+
+                                  <span> <a href="<?php echo $this->url('incuser', array('action' => 'logout', 'id' => 100)); ?>">Logout</a>
+                                  </span>  
+                             
+                            <?php  }else{ ?>
+
+                              <span>   <a href="<?php echo $this->url('incuser', array('action' => 'login',)); ?>">Login</a>
+                              </span> 
+                             <?php } ?>    
+                        </p> -->
+                        <p style="float: right;">
+                         <?php
+                           if ($user = $this->UserAuth()->getCradential()) {         
+                                 
+
+                                   echo "<span>".$user['name']. "<span> ";
+                                   echo "<span> ".$user['role']."</span>";
+                                  ?>
+
+                                  <span> <a href="<?php echo $this->url('incuser', array('action' => 'logout', 'id' => 100)); ?>">Logout</a>
+                                  </span>  
+                             
+                            <?php  }else{ ?>
+                              <span>   <a href="<?php echo $this->url('incuser', array('action' => 'login',)); ?>">Login</a>
+                              </span> 
+                              <span>   <a href="<?php echo $this->url('incuser', array('action' => 'register',)); ?>">Register</a>
+                              </span> 
+
+                             <?php } ?>    
+                        </p> 
+
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+           <p><?php echo $this->navigation('Navigation')->breadcrumbs(); ?></p>
+
+            <?php echo $this->content; ?>
+            <hr>
+            <footer>
+                <p>&copy; 2005 - 2012 by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
+            </footer>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

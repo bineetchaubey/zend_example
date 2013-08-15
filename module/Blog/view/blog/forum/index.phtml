@@ -1,0 +1,21 @@
+<?php
+ echo $this->escapeHtml($anc);
+
+ echo "This is blog module Forum controller index action page. and route name is forum";
+?>
+
+<ul>
+    <?php foreach ($flashMessages as $msg) : ?>
+    <li style="color:red;"><?php echo $msg; ?></li>
+    <?php endforeach; ?>
+</ul>
+
+<h2>Zend 2 With Doctrine2 , Zend Acl And Zend Authetication </h2>
+
+
+<ul>
+	<li>Anonymous user can ony view index pages </li>
+	<li> Login user with  user name:  mark  and password : mark123 can view 
+	    all page except user->addgroup and user->getsettingpage  </li>
+	<li>A admin  view all page without any restriction  login with : bineet  and password  bineet1234 </li>   
+</ul>  

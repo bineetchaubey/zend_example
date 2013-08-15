@@ -1,0 +1,20 @@
+<?php
+
+  echo "This is many to one relation between Post and Author";
+  
+
+
+  echo "<table class='table table-striped table-bordered'>";
+   echo "<thead><tr><th>Title</th><th>Content</th><th>Author</th></tr>";
+
+ foreach($Posts as $post){
+   echo "<tr>";
+   echo "<td>". $post->title."</td>";
+   echo "<td>". $post->body. "</td>>";
+   echo "<td>". $post->getAuthor()->name."</td>";
+   // echo $post->getAuthor()->id."<br/>";
+   echo "</tr>";
+ }
+ echo "</table>"
+
+?>

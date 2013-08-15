@@ -1,0 +1,21 @@
+<?php
+
+/*echo "<pre>";
+var_dump($userdata);
+echo "</pre>";*/
+
+?>
+
+<?php
+     if ($user = $this->identity()) {
+
+         
+           echo "Login user name : " . $user->name ."\n<br/> ";
+           echo "Login user role : " . $user->role ." \n ";
+         
+
+         // echo 'Logged in as ' . $this->escapeHtml($user->getUsername());
+     } else {
+         echo 'Not logged in';
+     }
+ ?>

@@ -1,0 +1,18 @@
+<?php
+
+echo " Example Doctrine Many to Many relation between User and Group Entity Through Join table user_groups";
+
+foreach ($Usergroup as $User) {
+      echo "<pre>";
+      echo  "Name:".$User->name."\n";
+
+      foreach($User->groups as $group){
+   
+           echo "Join Group  :". $group->name."\n";
+           echo "Join Group Display name :". $group->display_name."\n";
+      }
+    echo "</pre>";
+}
+
+
+?>

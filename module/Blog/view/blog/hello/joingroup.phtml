@@ -1,0 +1,18 @@
+<?php
+
+/*echo "<pre>";
+var_dump($groups);
+echo "</pre>";*/
+
+
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('blog',array('action' => 'joingroup'), TRUE));
+
+
+$form->get('gorupname')->setValueOptions($groups);
+$form->get('gorupname')->setValue($selectgroup);
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();

@@ -1,0 +1,19 @@
+<?php
+
+echo "sorry I’m Just a Little Bit Lazy <br/>";
+
+echo " Fecth data with doctrine";
+
+  echo "<pre>";
+
+ foreach($Posts as $post){
+
+   echo $post->title."<br/>";
+   echo $post->body. "<br/>";
+   echo $post->getAuthor()->name."<br/>";
+   echo $post->getAuthor()->id."<br/>";
+ 
+ }
+ echo "</pre>";
+
+?>

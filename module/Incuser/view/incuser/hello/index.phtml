@@ -1,0 +1,23 @@
+<?php
+
+  echo $message ."\n";
+  echo "This is user Home page. \n ";
+  echo "this is incuser module hello controller index action . \n";
+
+?>
+
+<h2>Zend 2 With Doctrine2 , Zend Acl And Zend Authetication </h2>
+
+
+<ul>
+	<li>Anonymous user can ony view index pages </li>
+	<li> Login user with  user name:  mark  and password : mark123 can view 
+	    all page except user->addgroup and user->getsettingpage  </li>
+	<li>A admin  view all page without any restriction  login with : bineet  and password  bineet1234 </li>   
+</ul>  
+
+<?php  
+	echo "<pre>";
+	 var_dump($this->UserAuth()->getCradential());
+	echo "</pre>"; 
+?>

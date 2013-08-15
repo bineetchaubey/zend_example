@@ -1,0 +1,18 @@
+<?php
+
+
+foreach($Users  as $user){
+	echo "<pre>";
+	echo "Name : ".$user->name ."\n";
+	echo "usename : ".$user->username."\n";
+	echo "Role : ".$user->role."\n";
+
+	foreach($user->posts as $posts){
+		echo "Blog Title : ".$posts->title."\n";
+		echo "Blog Contents : ".$posts->body."\n";
+	}
+
+	echo "</pre>";
+}
+
+?>

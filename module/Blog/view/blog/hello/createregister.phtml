@@ -1,0 +1,20 @@
+<?php
+
+$form = $this->regform ;
+
+$form->setAttribute('action',$this->url('incuser',array('action','register'),true));
+
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('name'));
+echo $this->formRow($form->get('username'));
+echo $this->formRow($form->get('email'));
+echo $this->formRow($form->get('password'));
+echo $this->formRow($form->get('age'));
+echo $this->formRow($form->get('role'));
+echo $this->formRow($form->get('state'));
+echo $this->formRow($form->get('newextra'));
+echo $this->formRow($form->get('submit'));
+
+echo $this->form()->closeTag();
+
+?>
