@@ -1,4 +1,4 @@
-ZendSkeletonApplication
+Zend Ezample 
 =======================
 
 Introduction
@@ -13,17 +13,11 @@ Installation
 
 Using Composer (recommended)
 ----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
-
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project --repository-url="http://packages.zendframework.com" zendframework/skeleton-application path/to/install
-
 Alternately, clone the repository and manually invoke `composer` using the shipped
 `composer.phar`:
 
     cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
+    git clone git://github.com/bineetchaubey/zend_example.git
     cd ZendSkeletonApplication
     php composer.phar self-update
     php composer.phar install
@@ -31,22 +25,12 @@ Alternately, clone the repository and manually invoke `composer` using the shipp
 (The `self-update` directive is to ensure you have an up-to-date `composer.phar`
 available.)
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
-
+please  download  this zip file , unzip file and he use   composer
     cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+    php composer install
 
-You would then invoke `composer` to install dependencies per the previous
-example.
+composer.josn file include all dependency
 
-Using Git submodules
+and above command will install all modeule ie DoctrineOrm module, zend2 library, zend development tool module etc
+
 --------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
-
-Virtual Host
-------------
-Afterwards, set up a virtual host to point to the public/ directory of the
-project and you should be ready to go!
