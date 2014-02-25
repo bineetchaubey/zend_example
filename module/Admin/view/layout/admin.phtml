@@ -1,0 +1,209 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Bineet Gandhi">
+<!-- main css -->
+<!-- The styles -->
+ <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Zend2 Admin panel'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.png'))
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath().'/css/charisma-app.css')
+                        ->prependStylesheet($this->basePath().'/css/opa-icons.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-journal.css') 
+                        ->prependStylesheet($this->basePath().'/css/chosen.css')
+                        ->prependStylesheet($this->basePath().'/css/uniform.default.css')
+                        ->prependStylesheet($this->basePath().'/css/jquery.noty.css')
+                        ->prependStylesheet($this->basePath().'/css/elfinder.min.css')
+                        ->prependStylesheet($this->basePath().'/css/jquery.iphone.toggle.css')
+                        ->prependStylesheet($this->basePath().'/css/jquery.iphone.toggle.css')
+                        
+                        ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
+
+        <script type="text/javascript">
+        
+         $(function(){
+           $('.dropdown-toggle').dropdown();
+         });
+        </script>    
+<style type="text/css">
+  body {
+	padding-bottom: 40px;
+	padding-top: 0px;
+  }
+  .sidebar-nav {
+	padding: 9px 0;
+  }
+  .nav > li{
+  	float:none;
+  }
+</style>
+
+
+<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+<body>
+<noscript>
+<style>
+#login-wrapper { display:none; }
+#nojs { background:#FC3; border-bottom: 1px solid #F90; padding:15px; font-size:14px; font-weight:bold; text-align:center; }
+</style>
+<div id="nojs">It seems that your web browser has the JavaScript support disabled.<br />If you want to be able to use this system, please enable the JavaScript support.</div>
+</noscript>
+<!-- topbar starts -->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="<?php echo $this->basePath()?>/admin"> <img alt="Charisma Logo" src="<?php echo $this->basePath("img/logo20.png") ?>" /> <span>Indianic</span></a>
+			
+			<!-- user dropdown starts -->
+			<div class="btn-group pull-right" >
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="icon-user"></i>
+					<span class="hidden-phone"><?php echo $this->translate('Welcome, Admin')?></span>
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="<?php echo $this->basePath(); ?>admin/usersprofile/"><?php echo $this->translate('Profile') ?></a></li>
+					<li class="divider"></li>
+					<li><a href="<?php echo $this->basePath(); ?>/admin/logout"><?php echo $this->translate('Logout')?></a></li>
+				</ul>
+			</div>
+			<!-- user dropdown ends -->
+			<div class="pull-right">
+				<a href="<?php echo $this->basePath(); ?>/admin/changelang/1"><?php echo $this->translate('English')?></a>
+				<a href="<?php echo $this->basePath(); ?>/admin/changelang/2"><?php echo $this->translate('Hindi')?></a>
+				<a href="<?php echo $this->basePath(); ?>/admin/changelang/3"><?php echo $this->translate('Gujarati')?></a>
+			</div>
+			
+			<div class="top-nav nav-collapse">
+				<ul class="nav">
+					<li><a href="<?php echo $this->basePath()?>/blog"><?php  echo $this->translate('Visit Site')?></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+</div>
+	<!-- topbar ends -->
+		<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<!-- left menu starts -->
+			<div class="span2 main-menu-span">
+				<div class="well nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu">
+						<li class="nav-header hidden-tablet">Main</li>
+						<li class="noclass">
+							<a class="ajax-link" href="<?php echo $this->basePath(); ?>/admin" ><i class="icon-home"></i><span class="hidden-tablet"> <?php echo $this->translate('Dashboard') ?></span></a></li>
+						<li class="  noclass"><a class="ajax-link" href="<?php echo $this->basePath(); ?>/admin/users" ><i class="icon-user"></i><span class="hidden-tablet"><?php echo  $this->translate('Users') ?></span></a></li>
+						<li class="  noclass"><a class="ajax-link" href="<?php  echo $this->basePath();?>/admin/cms" ><i class="icon-book"></i><span class="hidden-tablet"><?php echo $this->translate('CMS')?></span></a></li>
+						 <li class="noclass"><a class="ajax-link" href="#"><i class="icon-cog"></i><span class="hidden-tablet"><?php echo $this->translate(' Settings')?></span></a></li>
+													
+					</ul>
+					<div class="hide">
+						<label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox" checked> Ajax on menu</label>
+					</div>
+				</div><!--/.well -->
+			</div><!--/span-->
+			<!-- left menu ends -->
+			
+            <!-- main content section -->
+            
+           
+             <?php echo $this->content; ?> 
+
+            <!-- end middel content Section -->
+
+		</div><!--/fluid-row-->
+				
+		<hr>
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3><?php echo $this->translate('Settings')?></h3>
+			</div>
+			<div class="modal-body">
+				<p>Here settings can be configured...</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+		
+	</div><!--/.fluid-container-->
+
+<!-- external javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<!-- jQuery -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery-1.7.2.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<!-- transition / effect library -->
+	<script src="<?php echo $this->basePath(); ?>/js/bootstrap.min.js"></script>
+	<!-- library for cookie management -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.cookie.js"></script>
+	<!-- calander plugin -->
+	<script src='<?php echo $this->basePath(); ?>/js/fullcalendar.min.js'></script>
+	<!-- data table plugin -->
+	<script src='<?php echo $this->basePath(); ?>/js/jquery.dataTables.min.js'></script>
+
+	
+
+	
+
+	<!-- select or dropdown enhancer -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.chosen.min.js"></script>
+	<!-- checkbox, radio, and file input styler -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.uniform.min.js"></script>
+	<!-- plugin for gallery image view -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.colorbox.min.js"></script>
+	<!-- rich text editor library -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.cleditor.min.js"></script>
+	<!-- notification plugin -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.noty.js"></script>
+	<!-- file manager library -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.elfinder.min.js"></script>
+	<!-- star rating plugin -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.raty.min.js"></script>
+	<!-- for iOS style toggle switch -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.iphone.toggle.js"></script>
+	<!-- autogrowing textarea plugin -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.autogrow-textarea.js"></script>
+	<!-- multiple file upload plugin -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.uploadify-3.1.min.js"></script>
+	<!-- history.js for cross-browser state change on ajax -->
+	<script src="<?php echo $this->basePath(); ?>/js/jquery.history.js"></script>
+	<!-- application script for Charisma demo -->
+	<script src="<?php echo $this->basePath(); ?>/js/charisma.js"></script>
+
+	<script>
+	  $(function () {
+	    $('#myTab a').tab();
+	  })
+	</script>
+</body>
+</html>

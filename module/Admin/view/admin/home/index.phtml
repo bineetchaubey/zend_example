@@ -1,0 +1,38 @@
+
+
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			
+			<div id="content" class="span10">
+			<!-- content starts -->
+			 <?php echo $this->flashMessenger()->render(); ?>
+
+			<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="<?php echo $this->basePath(); ?>/admin/"><?php echo $this->translate('Home');?></a> <span class="divider">/</span>
+					</li>
+					<li>
+						<a href="<?php echo $this->basePath();?>/admin/settings"><?php echo $this->translate('Dashboard')?></a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="sortable row-fluid">
+				<a data-rel="tooltip" class="well span3 top-block" href="admin/users">
+					<span class="icon32 icon-red icon-user"></span>
+					<div><?php echo $this->translate('Total Users')?></div>
+					<div><?php echo $usercount[0][1]; ?></div>
+				</a>
+               
+				<a data-rel="tooltip" class="well span3 top-block" href="admin/cms">
+					<span class="icon32 icon-color icon-book"></span>
+					<div><?php echo $this->translate('CMS Pages')?></div>
+					<div><?php echo ($cmscount[0][1])?></div>
+				</a>
+			</div>					<!-- content ends -->
+			</div><!--/#content.span10-->

@@ -1,0 +1,65 @@
+<?php echo $this->doctype(); ?>
+<html>
+<head lang="en">
+	<?php echo $this->headTitle('ZF2 '. $this->translate('Zend2 Admin panel'))->setSeparator(' - ')->setAutoEscape(false) ?>
+<?php 	echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')	
+        ->prependStylesheet($this->basePath() . '/css/style.css')
+        ->prependStylesheet($this->basePath() . '/css/charisma-app.css'); 
+  ?>
+</head>
+<body>
+<noscript>
+<style>
+#login-wrapper { display:none; }
+#nojs { background:#FC3; border-bottom: 1px solid #F90; padding:15px; font-size:14px; font-weight:bold; text-align:center; }
+</style>
+<div id="nojs">It seems that your web browser has the JavaScript support disabled.<br />If you want to be able to use this system, please enable the JavaScript support.</div>
+</noscript>
+<div class="container-fluid" id="login-wrapper">
+	<div class="row-fluid">
+	
+		<div class="row-fluid">
+			<div class="span12 center login-header">
+				<h2><?php echo $this->translate('Indianic - Admin Panel')?></h2>
+			</div><!--/span-->
+		</div><!--/row-->
+		
+		<div class="row-fluid">
+			<div class="well span5 center login-box">
+				<!-- messages section (error, warning, success) -->
+									<div class="alert alert-info">
+						<?php echo $this->translate("Please login with your Username and Password.");?>					</div>
+
+
+ <?php
+
+  if($this->flashMessenger()->hasCurrentMessages()) : 
+  	 echo "<div class='alert alert-error'>";
+       echo $this->flashMessenger()->render();
+       echo "</div>"; 
+  endif;
+  ?>
+
+<?php
+
+ $form = $this->form;
+ $form->setAttribute('action',$this->url('admin', array('action' => 'login')),TRUE);
+
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('username'));
+echo $this->formRow($form->get('password'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
+?>
+
+<!-- /form elements section -->	
+			</div><!--/span-->
+		</div><!--/row-->
+			</div><!--/fluid-row-->
+	
+</div><!--/.fluid-container-->
+</body>
+</html>
